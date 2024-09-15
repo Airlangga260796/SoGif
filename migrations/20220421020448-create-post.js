@@ -1,6 +1,6 @@
 'use strict';
 module.exports = {
-   up(queryInterface, Sequelize) {
+  up(queryInterface, Sequelize) {
     return queryInterface.createTable('Posts', {
       id: {
         allowNull: false,
@@ -17,12 +17,16 @@ module.exports = {
         type: Sequelize.INTEGER,
         allowNull: false
       },
+      unlike: {
+        type: Sequelize.INTEGER,
+        allowNull: false
+      },
       UserId: {
         type: Sequelize.INTEGER,
-        references :{
+        references: {
           model: "Users",
           key: "id"
-        } 
+        }
       },
       caption: {
         type: Sequelize.TEXT,
@@ -38,7 +42,7 @@ module.exports = {
       }
     });
   },
-   down(queryInterface, Sequelize) {
+  down(queryInterface, Sequelize) {
     return queryInterface.dropTable('Posts');
   }
-};
+};//pret
